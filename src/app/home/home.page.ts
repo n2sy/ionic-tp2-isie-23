@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ListCourseService } from '../list-course.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  tab = [];
+  constructor(private listCourse: ListCourseService) {}
 
-  constructor() {}
-
+  ngOnInit(): void {
+    this.tab = this.listCourse.getAllCourses();
+  }
 }

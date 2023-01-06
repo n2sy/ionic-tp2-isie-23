@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add a course</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+      <ion-label for="">Title</ion-label>
+      <input ngModel required type="text" class="form-control" name="title">
+      <ion-label for="">Author</ion-label>
+      <input ngModel type="text" class="form-control" name="author">
+      <ion-label for="">Image</ion-label>
+      <input ngModel type="url" class="form-control" name="image">
+      <ion-label for="">Keywords</ion-label>
+      <input ngModel type="text" class="form-control" name="keywords">
+      <br>
+      <ion-button type="submit" [disabled]="f.invalid" expand="block">Add</ion-button>
+
+    </form>
+
+  </div>
+
+</ion-content>
